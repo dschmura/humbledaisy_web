@@ -186,6 +186,8 @@ en:
 
     about:
       title: "About Us"
+    about_our_name:
+      title: "About our name"
     privacy:
       title: "Privacy Policy"
     terms:

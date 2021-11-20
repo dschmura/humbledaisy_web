@@ -1,0 +1,13 @@
+--- !ruby/object:Jumpstart::Configuration
+application_name: Humble Daisy
+business_name: Humble Daisy, Inc
+domain: example.com
+support_email: support@humbledaisy.com
+default_from_email: Humble Daisy <support@example.com>
+business_address: "1342 Arella Boulevard\r\nAnn Arbor, MI 48103"
+background_job_processor: async
+email_provider: ''
+personal_accounts: true
+livereload: true
+solargraph: false
+register_with_account: false
