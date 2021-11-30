@@ -1,0 +1,22 @@
+.container.px-4.mx-auto.my-8
+  .mx-auto
+    .flex.items-center.justify-between.mb-4
+      %h1.h3
+        = link_to "Boards", boards_path
+        \&gt; Board ##{@board.id}
+      = link_to t("edit"), edit_board_path(@board), class: "btn btn-link"
+    .p-8.bg-white.rounded.shadow
+      .mb-4
+        %h5 Title
+        = @board.title
+      .mb-4
+        %h5 Description
+        = @board.description
+    .flex.flex-row
+      - @board.lists.each do |list|
+        .border-t.border-gray-400.group.hover:bg-gray-100.w-56.max-w-md.bg-blue-400.mx-2
+          .p-3= list.name
+          .p-3= list.description
+          .p-3.text-white= list.position
+          
+          = link_to t("shared.scaffold.view"), list, class: "btn btn-link no-underline"

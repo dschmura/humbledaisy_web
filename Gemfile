@@ -90,3 +90,7 @@ if File.exist?("config/jumpstart/Gemfile")
 end
 
 gem "redcarpet", "~> 3.5"
+
+gem "acts_as_list", "~> 1.0"
+
+gem "haml", "~> 5.2"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_28_145523) do
+ActiveRecord::Schema.define(version: 2021_11_29_170242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,23 @@ ActiveRecord::Schema.define(version: 2021_08_28_145523) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["token"], name: "index_api_tokens_on_token", unique: true
     t.index ["user_id"], name: "index_api_tokens_on_user_id"
+  end
+
+  create_table "boards", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "position"
+    t.bigint "board_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["board_id"], name: "index_lists_on_board_id"
   end
 
   create_table "notification_tokens", force: :cascade do |t|
@@ -236,17 +253,13 @@ ActiveRecord::Schema.define(version: 2021_08_28_145523) do
     t.bigint "user_id"
     t.string "provider"
     t.string "uid"
-    t.string "encrypted_access_token"
-    t.string "encrypted_access_token_iv"
-    t.string "encrypted_access_token_secret"
-    t.string "encrypted_access_token_secret_iv"
     t.string "refresh_token"
     t.datetime "expires_at"
     t.text "auth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["encrypted_access_token_iv"], name: "index_connected_accounts_access_token_iv", unique: true
-    t.index ["encrypted_access_token_secret_iv"], name: "index_connected_accounts_access_token_secret_iv", unique: true
+    t.string "access_token"
+    t.string "access_token_secret"
     t.index ["user_id"], name: "index_user_connected_accounts_on_user_id"
   end
 
@@ -297,6 +310,7 @@ ActiveRecord::Schema.define(version: 2021_08_28_145523) do
   add_foreign_key "accounts", "users", column: "owner_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "api_tokens", "users"
+  add_foreign_key "lists", "boards"
   add_foreign_key "pay_charges", "pay_customers", column: "customer_id"
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"
   add_foreign_key "pay_subscriptions", "pay_customers", column: "customer_id"

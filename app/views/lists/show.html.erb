@@ -1,0 +1,27 @@
+<div class="container px-4 mx-auto my-8">
+  <div class="max-w-3xl mx-auto">
+    <div class="flex items-center justify-between mb-4">
+      <h1 class="h3"><%= link_to "Lists", lists_path %> > List #<%= @list.id %></h1>
+      <%= link_to t("edit"), edit_list_path(@list), class: "btn btn-link" %>
+    </div>
+
+    <div class="p-8 bg-white rounded shadow">
+      <div class="mb-4">
+        <h5>Name</h5>
+        <%= @list.name %>
+      </div>
+      <div class="mb-4">
+        <h5>Description</h5>
+        <%= @list.description %>
+      </div>
+      <div class="mb-4">
+        <h5>Position</h5>
+        <%= @list.position %>
+      </div>
+      <div class="mb-4">
+        <h5>Board</h5>
+        <%= @list.board %>
+      </div>
+    </div>
+  </div>
+</div>
