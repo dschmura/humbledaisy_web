@@ -14,7 +14,7 @@
         = @board.description
     .flex.flex-row
       - @board.lists.each do |list|
-        .border-t.border-gray-400.group.hover:bg-gray-100.w-56.max-w-md.bg-blue-400.mx-2
+        .border-t.border-gray-400.group.hover:bg-gray-600.w-56.max-w-md.bg-blue-300.mx-2.rounded-b-lg.hover:text-blue-100
           .p-3= list.name
           .p-3= list.description
           .p-3.text-white= list.position
