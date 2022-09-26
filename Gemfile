@@ -81,7 +81,7 @@ gem "responders", github: "heartcombo/responders"
 gem "rotp", "~> 6.2"
 gem "rqrcode", "~> 2.1"
 gem "ruby-oembed", "~> 0.15.0", require: "oembed"
-gem "strong_migrations", "~> 0.7.6"
+gem "strong_migrations", "~> 1.3.1"
 gem "whenever", "~> 1.0", require: false
 
 # Jumpstart manages a few gems for us, so install them from the extra Gemfile
